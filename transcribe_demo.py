@@ -6,6 +6,7 @@ import os
 import speech_recognition as sr
 import whisper
 import torch
+from zhconv import convert 
 
 from datetime import datetime, timedelta
 from queue import Queue
@@ -145,6 +146,7 @@ def main():
 
     print("\n\nTranscription:")
     for line in transcription:
+        line = convert(line, 'zh-hant')
         print(line)
 
 
